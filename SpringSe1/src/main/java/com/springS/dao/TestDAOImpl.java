@@ -18,4 +18,10 @@ public class TestDAOImpl implements TestDAO {
 		return sqlSession.insert(namespace+".memberId");
 	}
 
+	@Override
+	public int deleteTest() {
+		
+		return sqlSession.delete(namespace+".deleteId");
+	}
+
 }

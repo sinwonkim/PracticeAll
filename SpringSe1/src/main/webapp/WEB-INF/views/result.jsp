@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	${testVo.name}
-	${testVo.age}
-	${testVo.locate} 
+	
 </body>
 </html>

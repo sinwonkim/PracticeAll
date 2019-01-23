@@ -18,4 +18,10 @@ public class TestServiceImpl implements TestService {
 		return testDAO.insertTest();
 	}
 
+	@Override
+	public int deleteTest() {
+		// TODO Auto-generated method stub
+		return testDAO.deleteTest();
+	}
+
 }
