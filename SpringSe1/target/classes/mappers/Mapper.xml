@@ -4,16 +4,58 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.springS.dao.Mapper">
 
-  <insert id="memberId">
+<!-- sql 테이블 NOT NULL 은 bno(PRIMARY KEY), title, writer만 NOT NULL로 설정해놓음  -->
+
+  <!-- <insert id="memberId">
     insert into test
     values('idid23','passpass')
+  </insert> -->
+  
+  <!--insert  -->
+  <insert id="create">
+  	insert into tbl_board(
+	  	 title
+		  ,content
+		  ,writer
+  	)values(
+	  	 #{title}
+	  	  ,#{content}
+	  	  ,#{writer}
+  	)
   </insert>
   
+  <!--select  -->
+  <select id="read" resultType="vo.BoardVO">
+  	select 
+  		bno
+  		,title
+  		,content
+  		,writer
+  		,regdate
+  		,viewcnt
+  	from tbl_board
+  	where bno = #{bno}		
+  </select>
   
-  <delete id="deleteId">
-  delete from test
-  where memberId = 'test';
+  <update id="update">
+  	update tbl_board set title = #{title},content = #{content}
+  	where bno = #{bno}
+  </update>
   
+  <delete id="delete">
+  	delete from tbl_board where bno = #{bno}
   </delete>
+	
+	  
+  <select id="listAll" resultType="vo.BoardVO">
+  	<![CDATA[
+  	select
+  		bno,title,content,writer, regdate, viewcnt
+  	from
+  		tbl_board
+  	where bno > 0
+  	order by bno desc, regdate desc
+  	]]>
+  </select>
   
 </mapper>

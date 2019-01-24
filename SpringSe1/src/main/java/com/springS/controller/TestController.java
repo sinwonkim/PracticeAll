@@ -8,12 +8,15 @@ import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
+
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.databind.util.JSONPObject;
@@ -21,7 +24,7 @@ import com.fasterxml.jackson.databind.util.JSONPObject;
 import service.TestService;
 import vo.TestVo;
 
-@Controller
+
 public class TestController {
 	
 	@Inject
@@ -72,4 +75,13 @@ public class TestController {
 		System.out.println(list);
 		return ;
 	}
+	@RequestMapping(value="paratest")
+	public String paramtest(@RequestParam String name) {
+			System.out.println(name);
+			
+			
+		return "result";
+	}
+	
+	
 }
