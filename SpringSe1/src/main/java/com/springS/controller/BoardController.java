@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import service.BoardService;
@@ -37,6 +38,7 @@ public class BoardController {
 		
 		/*return "/board/sucess";*/
 		
+		service.regist(board);
 	
 		return "redirect:/board/listAll";
 		
@@ -46,6 +48,13 @@ public class BoardController {
 		logger.info(" all list ");
 		model.addAttribute("list", service.listAll());
 		
+	}
+	
+	// read는 리턴값 필요없음
+	@RequestMapping(value = "/read", method = RequestMethod.GET)
+	public void read(@RequestParam("bno") int bno, Model model) throws Exception {
+		
+		model.addAttribute(service.read(bno));
 	}
 	
 }

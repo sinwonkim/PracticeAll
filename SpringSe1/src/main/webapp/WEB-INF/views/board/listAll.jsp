@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<%@ page session="false" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,26 +19,29 @@ if(result == 'SUCCESS'){
 </script>
 </head>
 <body>
-	<table class="table table-border">
+	<table class="table table-bordered">
 		<tr>
 			<th style="width:10px">BNO</th>
-			<th>작성자</th>	
+			<th>제목</th>	
+			<th>작성자</th>
 			<th>작성일</th>
-			<th>보기</th>
+			<th style="width: 40px">조회수</th>
 		</tr>
-	</table>
+	
 	
 	<c:forEach items="${list}" var="boardVO">
 		<tr>
-			<td>${boardVo.bno}</td>
-			<td></td>
-			<td></td>
-			<td></td>
-		
-		
+			<td>${boardVO.bno}</td>
+			<td><a href="/board/read?bno=${boardVO.bno}">${boardVO.title }</a></td>
+			<td>${boardVO.writer}</td>
+			<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${boardVo.regdate}"/></td>
+			
+			<td><span class="badge ba-red">${boardVO.viewcnt }</span></td>
 		</tr>
 	
 	
 	</c:forEach>
+	
+	</table>
 </body>
 </html>

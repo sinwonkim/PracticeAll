@@ -16,33 +16,34 @@ public class BoardServiceImpl implements BoardService {
 	@Inject
 	private BoardDAO dao;
 	
-	// insert    c
+	// insert   등록 리턴값x
 	@Override
 	public void regist(BoardVO board) throws Exception {
 		dao.create(board);
 	}
 	
-	// select  r
+	// select  조회 리턴값 있음
 	@Override
 	public BoardVO read(Integer bno) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.read(bno);
 	}
 
-	// update  u
+	// update  수정 리턴값x
 	@Override
 	public void modify(BoardVO board) throws Exception {
-		// TODO Auto-generated method stub
+		dao.update(board);
 
 	}
 	
-	// delete d
+	// delete 삭제 리턴값x
 	@Override
 	public void remove(Integer bno) throws Exception {
 		// TODO Auto-generated method stub
-
+		dao.delete(bno);
 	}
-
+	
+	// 전체목록 조회 리턴값o
 	@Override
 	public List<BoardVO> listAll() throws Exception {
 		// TODO Auto-generated method stub
