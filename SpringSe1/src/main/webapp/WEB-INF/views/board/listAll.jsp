@@ -34,7 +34,7 @@ if(result == 'SUCCESS'){
 			<td>${boardVO.bno}</td>
 			<td><a href="/board/read?bno=${boardVO.bno}">${boardVO.title }</a></td>
 			<td>${boardVO.writer}</td>
-			<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${boardVo.regdate}"/></td>
+			<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${boardVO.getRegdate()}"/></td>
 			
 			<td><span class="badge ba-red">${boardVO.viewcnt }</span></td>
 		</tr>
