@@ -31,6 +31,7 @@ public class BoardController {
 		logger.info("register..............register GET");
 	}
 	
+	// 실제로 화면에서 입력되어 들어오는 데이터를 처리하기 위해 BoardVO로 수집 , 데이터를 전달처리 하기위해 Model 클래스 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String registPOST(BoardVO board, RedirectAttributes rttr) throws Exception {
 		
@@ -40,7 +41,7 @@ public class BoardController {
 		
 		service.regist(board);
 	
-		return "redirect:/board/listAll";
+		return "redirect:/board/listAll"; //
 		
 	}
 	@RequestMapping(value="listAll", method=RequestMethod.GET)
