@@ -13,7 +13,7 @@
 var result = '${msg}';
 
 if(result == 'SUCCESS'){
-	alert('처리가 완료 되었습니다.');
+	alert('글이 정상적으로 등록되었습니다.');
 }
 
 </script>
