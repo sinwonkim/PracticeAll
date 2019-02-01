@@ -11,9 +11,13 @@
 <title>listAll.jsp</title>
 <script type="text/javascript">
 var result = '${msg}';
+var result2 = '${msg2}'; 
 
 if(result == 'SUCCESS'){
-	alert('글이 정상적으로 등록되었습니다.');
+	alert('해당 글이  등록 되었습니다.');
+}
+if(result2 == 'SUCCESS'){
+	alert('해당 글이 삭제 되었습니다.')
 }
 
 </script>

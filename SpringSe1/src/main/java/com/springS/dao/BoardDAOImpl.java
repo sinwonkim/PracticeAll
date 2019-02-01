@@ -24,7 +24,7 @@ public class BoardDAOImpl implements BoardDAO {
 
 	}
 	
-	// select 
+	// select은 return값 있음
 	@Override
 	public BoardVO read(Integer bno) throws Exception {
 		return sqlSession.selectOne(namespace+".read",bno);
@@ -44,7 +44,7 @@ public class BoardDAOImpl implements BoardDAO {
 
 	}
 
-	// select 
+	// select은 retrun값 있음
 	@Override
 	public List<BoardVO> listAll() throws Exception {
 		

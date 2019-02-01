@@ -64,4 +64,14 @@ public class BoardController {
 		model.addAttribute(service.read(bno));
 	}
 	
+	@RequestMapping(value = "/remove", method= RequestMethod.POST)
+	public String remove(@RequestParam("bno")int bno, RedirectAttributes rttr) throws Exception {
+		
+		service.remove(bno);
+		
+		// 삭제결과 RedirectAttributes의  addFlashAttribute 활용
+		rttr.addFlashAttribute("msg2","SUCCESS");
+		
+		return "redirect:/board/listAll";
+	}
 }

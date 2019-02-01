@@ -3,6 +3,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+<link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
  <script src="/resources/plugins/jQuery/jQuery-2.1.4.min.js"></script>
@@ -30,8 +33,6 @@
 		<button type="submit" class="btn btn-warning">Modify</button>
 		<button type="submit" class="btn btn-danger">REMOVE</button>
 		<button type="submit" class="btn btn-primary">LIST</button>
-		
-	
 	</div>
 	
 <script type="text/javascript">  
