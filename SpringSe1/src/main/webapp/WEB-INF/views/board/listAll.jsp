@@ -12,6 +12,7 @@
 <script type="text/javascript">
 var result = '${msg}';
 var result2 = '${msg2}'; 
+var result3 = '${msg3}';
 
 if(result == 'SUCCESS'){
 	alert('해당 글이  등록 되었습니다.');
@@ -19,6 +20,10 @@ if(result == 'SUCCESS'){
 if(result2 == 'SUCCESS'){
 	alert('해당 글이 삭제 되었습니다.')
 }
+if(result3 == 'SUCCESS'){
+	alert('수정 되었습니다.')
+}
+
 
 </script>
 </head>

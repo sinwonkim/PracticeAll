@@ -47,8 +47,7 @@ public class BoardController {
 		return "redirect:/board/listAll"; //
 		
 	}
-	// spring의 Model은 addAttribute() 작업을 할떄 아무런 이름 없이 데이터 넣으면 자동으로 클래스 이름을 소문자로
-	// 시작해서 사용하게됨
+	
 	@RequestMapping(value="listAll", method=RequestMethod.GET)
 	public void listAll(Model model) throws Exception {
 		logger.info(" all list ");
@@ -56,14 +55,15 @@ public class BoardController {
 		
 	}
 	
-	// spring의 Model은 addAttribute() 작업을 할떄 아무런 이름 없이 데이터 넣으면 자동으로 클래스 이름을 소문자로
-	// 시작해서 사용하게됨
+	
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
 	public void read(@RequestParam(value ="bno", required = false, defaultValue="0") int bno, Model model) throws Exception {
 		
+		// Model attributes()작업을 할때  아무런 이름없이 데이터를 넣으면 자동으로 클래스의 이름을 소문자로 시작해서 사용함
 		model.addAttribute(service.read(bno));
 	}
 	
+	// 게시판 삭제처리 
 	@RequestMapping(value = "/remove", method= RequestMethod.POST)
 	public String remove(@RequestParam("bno")int bno, RedirectAttributes rttr) throws Exception {
 		
@@ -71,6 +71,24 @@ public class BoardController {
 		
 		// 삭제결과 RedirectAttributes의  addFlashAttribute 활용
 		rttr.addFlashAttribute("msg2","SUCCESS");
+		
+		return "redirect:/board/listAll";
+	}
+	
+	// modify get방식은 조회 페이지로 이동하게 함   return 에 뷰페이지 작성 안할시 value.jsp 로 되고 
+	@RequestMapping(value="/modify",method = RequestMethod.GET)
+	public void modifyGET(int bno, Model model) throws Exception {
+		
+		// Model attributes()작업을 할때  아무런 이름없이 데이터를 넣으면 자동으로 클래스의 이름을 소문자로 시작해서 사용함
+		model.addAttribute(service.read(bno));
+	}
+	
+	// modify post방식은 실제 수정 작업을 처리함 리턴타입은 등록,삭제와 동일하게 처리함 	
+	@RequestMapping(value="/modify",method = RequestMethod.POST)
+	public String modifyPOST(BoardVO board, RedirectAttributes rttr)throws Exception {
+		
+		service.modify(board);
+		rttr.addFlashAttribute("msg3","SUCCESS");
 		
 		return "redirect:/board/listAll";
 	}
