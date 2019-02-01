@@ -16,11 +16,12 @@
   	insert into tbl_board(
 	  	 title
 		  ,content
-		  ,writer
+		  ,writer		  	
   	)values(
 	  	 #{title}
 	  	  ,#{content}
 	  	  ,#{writer}
+	  
   	)
   </insert>
   

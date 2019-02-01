@@ -13,9 +13,12 @@
 			<label for="exampleInputEmail">Title</label>
 			<input type="text" name="title" placeholder="Enter Title">
 		</div>
+		<div>
+			<input type="date" name="date"/>
+		</div>
 		<div class="form-group">
 			<label for="exampleInputPassword1">Content</label>
-			<textarea class="form-control" name="content "rows="3" placeholder="Enter">
+			<textarea class="form-control" name="content" rows="3" placeholder="Enter">
 			
 			</textarea>	
 		</div>

@@ -1,7 +1,9 @@
 package com.springS.controller;
 
-import javax.inject.Inject;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
 
+import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,6 +28,7 @@ public class BoardController {
 	@Inject
 	private BoardService service;
 	
+	// return 값 없을시 매핑된 value값+.jsp로 리턴
 	@RequestMapping(value= "/register", method = RequestMethod.GET)
 	public void registerGET(BoardVO board,Model model) throws Exception {
 		logger.info("register..............register GET");
@@ -38,12 +41,14 @@ public class BoardController {
 		rttr.addFlashAttribute("msg","SUCCESS");
 		
 		/*return "/board/sucess";*/
-		
+			
 		service.regist(board);
-	
+		
 		return "redirect:/board/listAll"; //
 		
 	}
+	// spring의 Model은 addAttribute() 작업을 할떄 아무런 이름 없이 데이터 넣으면 자동으로 클래스 이름을 소문자로
+	// 시작해서 사용하게됨
 	@RequestMapping(value="listAll", method=RequestMethod.GET)
 	public void listAll(Model model) throws Exception {
 		logger.info(" all list ");
@@ -51,9 +56,10 @@ public class BoardController {
 		
 	}
 	
-	// read는 리턴값 필요없음
+	// spring의 Model은 addAttribute() 작업을 할떄 아무런 이름 없이 데이터 넣으면 자동으로 클래스 이름을 소문자로
+	// 시작해서 사용하게됨
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
-	public void read(@RequestParam("bno") int bno, Model model) throws Exception {
+	public void read(@RequestParam(value ="bno", required = false, defaultValue="0") int bno, Model model) throws Exception {
 		
 		model.addAttribute(service.read(bno));
 	}
